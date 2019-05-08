@@ -1,0 +1,78 @@
+{
+    "menu": [{
+            "name": "线路概况",
+            "url_l": "gline_l.html",
+            "url_r": "gline_r.html",
+            "id": "char0"
+        },
+        {
+            "name": "故障统计",
+            "url_l": "gztj_l.html",
+            "url_r": "gztj_r.html",
+            "id": "char1"
+        },
+        {
+            "name": "无人机巡检",
+            "url_l": "wurenji_l.html",
+            "url_r": "wurenji_r.html",
+            "id": "char2"
+        },
+        {
+            "name": "移动巡检派工",
+            "url_l": "mobilex_l.html",
+            "url_r": "mobilex_r.html",
+            "id": "char3"
+        },
+        {
+            "name": "三跨设备概况",
+            "url_l": "fivespan_l.html",
+            "url_r": "fivespan_r.html",
+            "id": "char4"
+        },
+        {
+            "name": "八防设备概况",
+            "url_l": "sixprevention_l.html",
+            "url_r": "sixprevention_r.html",
+            "id": "char5"
+        },
+        {
+            "name": "负荷检测",
+            "url_l": "fhjc_l.html",
+            "url_r": "fhjc_r.html",
+            "id": "char6"
+        },
+        {
+            "name": "在线监测",
+            "url_l": "oline_l.html",
+            "url_r": "oline_r.html",
+            "id": "char7"
+        },
+        {
+            "name": "防外破管控",
+            "url_l": "fwpgl_l.html",
+            "url_r": "fwpgl_r.html",
+            "id": "char8"
+        },
+        {
+            "name": "可视化管控",
+            "url_l": "kshjk_l.html",
+            "url_r": "kshjk_r.html",
+            "id": "char9"
+        },
+        {
+            "name": "预警中心",
+            "url_l": "warn_l.html",
+            "url_r": "warn_r.html",
+            "id": "char10"
+        },
+        {
+            "name": "机器人巡检",
+            "url_l": "robot_l.html",
+            "url_r": "robot_r.html",
+            "id": "char11"
+        }
+
+    ]
+
+
+}

@@ -1,0 +1,11 @@
+.cesiumContainer {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 1550px;
+    height: 720px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 1;
+}

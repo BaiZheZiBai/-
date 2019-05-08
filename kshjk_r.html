@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>可视化管控</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" content="HTML5交通运输监控大数据可视化智慧云平台网站模板下载。北京市智慧城市交通监控大数据可视化云平台管理系统模板，车辆监控服务后台系统模板html下载。该系统主要包括地图监控、统计分析、表格管理、视频监控、文本录入等界面。主要用于大数据系统的后台展示。大气好看，总共10个html页面模板。" />
+    <!-- <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" /> -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+    <style>
+        .nav_title {
+            width: 300px;
+            height: 24px;
+            /* border:1px solid red; */
+            margin-top: 10px;
+            margin-left: 21px;
+            color: #90D1F2;
+        }
+        
+        .nav_title a {
+            color: #90D1F2;
+            font-size: 14px;
+        }
+        
+        .div_any_childone {
+            width: 1087px;
+            height: 260px;
+            margin-left: 20px;
+            background: url('img/kshjl1.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .div_any_childtwo {
+            width: 1087px;
+            height: 260px;
+            margin-left: 20px;
+            margin-top: 25px;
+            background: url('img/kshjl2.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .div_any_three {
+            width: 1087px;
+            height: 260px;
+            margin-top: 30px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+        
+        .div_any_three .middin_left {
+            float: left;
+            width: 536px;
+            height: 260px;
+            padding: 30px 0px;
+            padding-bottom: 0px;
+            background: url('img/kshjl3.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .div_any_three .middin_right {
+            float: right;
+            width: 536px;
+            height: 260px;
+            padding: 60px 20px;
+            padding-bottom: 0px;
+            background: url('img/kshjl4.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .div_right_status {
+            width: 1087px;
+            height: 260px;
+            margin-left: 20px;
+            background: url('img/fwp5.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .div_right_middin {
+            width: 1087px;
+            height: 260px;
+            margin-top: 15px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+        
+        .div_right_middin .middin_left {
+            float: left;
+            width: 536px;
+            height: 260px;
+            padding: 60px 20px;
+            padding-bottom: 0px;
+            background: url('img/fwp7.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .div_right_middin .middin_right {
+            float: right;
+            width: 536px;
+            height: 260px;
+            padding: 60px 20px;
+            padding-bottom: 0px;
+            background: url('img/fwp8.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .div_right_middin .middin_video {
+            width: 361px;
+            height: 184px;
+            background: rgba(0, 234, 255, 1);
+        }
+        
+        .div_right_middin .middin_an {
+            position: absolute;
+            width: 80px;
+            right: 30px;
+            top: 60px;
+        }
+        
+        .div_right_middin .middin_an img {
+            width: 20px;
+            height: 24px;
+        }
+        
+        #year_lf1 {
+            margin-top: 40px;
+            padding: 0px 15px;
+        }
+        
+        #year_lf1 ul {
+            margin: 5px 0px;
+            width: 1038px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            color: #90D1F2
+        }
+        
+        #year_lf1 ul li {
+            float: left;
+            text-align: center;
+            width: 250px;
+        }
+        
+        #year_lf1 .nav {
+            height: 30px;
+            background: rgba(14, 90, 125, 1);
+            border-radius: 14px;
+        }
+        
+        .div_right_type {
+            width: 1087px;
+            height: 260px;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 0px 20px;
+            padding-top: 50px;
+            background: url('img/fwp6.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .div_right_type .type_li {
+            margin-top: 10px;
+        }
+        
+        .div_right_type p {
+            color: rgba(144, 209, 242, 1);
+        }
+        
+        .div_any_left ul {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0px 30px
+        }
+        
+        .div_any_left ul li {
+            height: 30px;
+            background: rgba(14, 90, 125, 1);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            line-height: 30px;
+            font-size: 16px;
+            text-indent: 10px;
+            color: #90D1F2;
+        }
+        
+        .div_any_left ul li span {
+            width: 10px;
+            height: 10px;
+            background: rgba(10, 197, 214, 1);
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        
+        #box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .right_top_Stitle .right_span {
+            float: right;
+            color: #90D1F2;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--内容部分-->
+    <div class="con_right">
+
+        <div class="div_right_status" id='bteam'>
+
+        </div>
+        <div class="div_right_middin">
+            <div class="middin_left">
+                <div class="middin_video">
+
+                </div>
+                <div class="middin_an">
+                    <p><img src="img/youjiantou.png" alt=""><img style="margin-left:38px;" src="img/zanting1.png" alt=""></p>
+                    <p style="margin-top:10px;"><img src="img/zuokuaijin.png" alt=""><img style="margin-left:38px;" src="img/youkuaijin.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/1beisu.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/2beisu.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/quanpin.png" alt=""></p>
+                </div>
+            </div>
+            <div class="middin_right">
+                <div class="middin_video">
+
+                </div>
+                <div class="middin_an">
+                    <p><img src="img/youjiantou.png" alt=""><img style="margin-left:38px;" src="img/zanting1.png" alt=""></p>
+                    <p style="margin-top:10px;"><img src="img/zuokuaijin.png" alt=""><img style="margin-left:38px;" src="img/youkuaijin.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/1beisu.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/2beisu.png" alt=""></p>
+                    <p><img style="width:80px;height: 28px;margin-top:8px;" src="img/quanpin.png" alt=""></p>
+                </div>
+            </div>
+        </div>
+        <div class="div_right_type">
+            <div class="type_li">
+                <p style="height:39px;"><span style="font-weight:bold;">2019年12月12日</span><span style="font-weight:bold;margin-left: 20px;">程三三</span></p>
+                <p>************************************************************************************************
+                </p>
+            </div>
+            <div class="type_li">
+                <p style="height:39px;"><span style="font-weight:bold;">2019年12月12日</span><span style="font-weight:bold;margin-left: 20px;">程三三</span></p>
+                <p>************************************************************************************************
+                </p>
+            </div>
+            <div class="type_li">
+                <p style="height:39px;"><span style="font-weight:bold;">2019年12月12日</span><span style="font-weight:bold;margin-left: 20px;">程三三</span></p>
+                <p>************************************************************************************************
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/base.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="js/kshjk.js"></script>
+
+
+</body>
+
+</html>

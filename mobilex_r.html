@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>移动巡检派工</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" />
+    <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+        
+        th {
+            color: #90D1F2;
+        }
+        
+        td {
+            text-align: center;
+            color: #90D1F2;
+        }
+        
+        #box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .box_Btitle {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(55, 128, 165);
+            /* text-align: center; */
+            line-height: 50px;
+            font-size: 24px;
+            text-indent: 5px;
+            cursor: pointer;
+        }
+        
+        .con_box {
+            width: 100%;
+            height: 20px;
+            line-height: 16px;
+        }
+        
+        .con_box span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: 43px;
+            color: #0AC5D6;
+            font-size: 16px;
+        }
+        
+        .cstyle {
+            /* background-color: #90D1F2; */
+            margin-left: 20px;
+            margin-top: 12px;
+            /* border:none; */
+        }
+        
+        .doublebox {
+            margin-top: 10px;
+            text-indent: 20px;
+            height: 26px;
+            line-height: 26px;
+            /* vertical-align: middle; */
+        }
+        
+        .doublebox input {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        
+        #positionDataLabel1 {
+            position: absolute;
+            top: 200;
+            z-index: 99;
+        }
+        
+        .map-info {
+            width: 648px;
+            height: 68px;
+            position: absolute;
+            /* left: 50%;  */
+            bottom: 0;
+            margin-left: 40px;
+            background: rgba(0, 0, 0, .2);
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            line-height: 68px;
+            z-index: 2;
+        }
+        
+        .zaixian_buton {
+            position: absolute;
+            top: 66px;
+            left: 84px;
+            height: 50px;
+            width: 50px;
+            z-index: 6666
+        }
+        
+        .zaixian_buton button {
+            height: 50px;
+            width: 150px;
+            background-color: rgb(55, 128, 165);
+            border: 1px solid #90D1F2;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .box_box {
+            padding: 5%;
+            height: 100%;
+        }
+        
+        .box_box {
+            padding: 5%;
+            height: 100%;
+        }
+        
+        .right_top_Stitle .right_span {
+            float: right;
+            color: #90D1F2;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+        
+        .nav_title {
+            width: 300px;
+            height: 24px;
+            /* border:1px solid red; */
+            margin-top: 10px;
+            margin-left: 21px;
+            color: #90D1F2;
+        }
+        
+        .nav_title a {
+            color: #90D1F2;
+            font-size: 14px;
+        }
+        
+        .div_any01 .div_line_box {
+            width: 1089px;
+            height: 811px;
+            /* border:1px solid red; */
+            margin-top: 61px;
+            margin-left: 20px;
+            background: url('img/renwu_num.png') no-repeat;
+        }
+        
+        .l_title {
+            width: 1081px;
+            height: 35px;
+            margin-left: 3px;
+        }
+        
+        .line_top_box {
+            width: 1081px;
+            height: 521px;
+            margin-left: 3px;
+            /* border:1px solid red; */
+        }
+        
+        .line_bottom_box {
+            width: 1081px;
+            height: 250px;
+            /* background:rgba(0,234,255,1); */
+            background-color: #0E2453;
+            margin-left: 4px;
+            overflow-y: auto;
+        }
+        
+        .Banzu_box {
+            width: 950px;
+            height: 78px;
+            margin-top: 19px;
+            margin-left: 42px;
+            color: #1AE1E8;
+        }
+        
+        .left_yuan_box {
+            width: 38px;
+            height: 78px;
+            float: left;
+        }
+        
+        .right_info_box {
+            width: 912px;
+            height: 78px;
+            float: left;
+        }
+        
+        .right_info_box ul li {
+            font-size: 18px;
+        }
+        
+        .right_info_box ul li span:nth-child(2) {
+            margin-left: 25px;
+        }
+        
+        .right_info_box ul li span:nth-child(3) {
+            margin-left: 25px;
+        }
+        
+        .right_info_box ul li:first-child {
+            font-weight: bold;
+        }
+        
+        .div_line_rightbox {
+            width: 1089px;
+            height: 535px;
+            margin-left: 15px;
+            background: url('img/bzxlfb.png') no-repeat;
+            position: relative;
+        }
+        
+        .div_line_rightbox h2 {
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 270px;
+            text-align: center;
+            line-height: 40px;
+            color: #7ECEF4;
+            font-size: 20px;
+        }
+        
+        .banzu_pto {
+            width: 490px;
+            height: 184px;
+            float: left;
+            margin-left: 33px;
+            /* background-color: #68E6F9; */
+        }
+        
+        .banzu_pto:nth-of-type(1),
+        .banzu_pto:nth-of-type(2) {
+            margin-top: 76px;
+        }
+        
+        .banzu_pto:nth-of-type(1) {
+            background: url('img/p1.jpg') no-repeat;
+        }
+        
+        .banzu_pto:nth-of-type(2) {
+            background: url('img/p2.jpg') no-repeat;
+        }
+        
+        .banzu_pto:nth-of-type(3) {
+            background: url('img/p3.jpg') no-repeat;
+        }
+        
+        .banzu_pto:nth-of-type(4) {
+            background: url('img/p4.jpg') no-repeat;
+        }
+        
+        .banzu_pto:nth-of-type(3),
+        .banzu_pto:nth-of-type(4) {
+            margin-top: 46px;
+        }
+        
+        .div_line_bottombox {
+            width: 1089px;
+            height: 260px;
+            margin-top: 16px;
+            margin-left: 15px;
+        }
+        
+        .bug_box {
+            width: 536px;
+            height: 260px;
+            /* border:1px solid red; */
+            float: left;
+            background: url('img/quexian_bg.png') no-repeat;
+        }
+        
+        .people_num {
+            width: 536px;
+            height: 260px;
+            /* border:1px solid red; */
+            margin-left: 17px;
+            float: left;
+            background: url('img/renyuan_dw.png') no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con_right">
+        <div class="div_line_rightbox">
+            <h2>照片库</h2>
+            <div class="banzu_pto"></div>
+            <div class="banzu_pto"></div>
+            <div class="banzu_pto"></div>
+            <div class="banzu_pto"></div>
+        </div>
+        <div class="div_line_bottombox">
+            <div class="bug_box" id="bug">
+
+            </div>
+            <div class="people_num" id="dpeople">
+
+            </div>
+
+        </div>
+    </div>
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="js/comurl.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/mobilex.js"></script>
+    <script>
+    </script>
+
+
+</body>
+
+</html>

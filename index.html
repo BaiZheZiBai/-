@@ -1,0 +1,1409 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" content="HTML5交通运输监控大数据可视化智慧云平台网站模板下载。北京市智慧城市交通监控大数据可视化云平台管理系统模板，车辆监控服务后台系统模板html下载。该系统主要包括地图监控、统计分析、表格管理、视频监控、文本录入等界面。主要用于大数据系统的后台展示。大气好看，总共10个html页面模板。" />
+    <!-- <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" /> -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+    <link rel="stylesheet" type="text/css" href="./Cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" type="text/css" href="./CesiumSDK/CesiumSDK.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/zTreeStyle.css" type="text/css">
+
+    <style>
+        a {
+            text-decoration: none
+        }
+        
+        th {
+            color: #90D1F2;
+        }
+        
+        td {
+            text-align: center;
+            color: #90D1F2;
+        }
+        
+        #box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .div_any01 {
+            margin-top: 112px;
+            position: relative;
+        }
+        
+        #div_any03 {
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .line_box {
+            position: absolute
+        }
+        
+        .line_box .p_chart ul {
+            width: 100%;
+            height: 28px;
+            font-size: 18px;
+            font-family: SourceHanSansCN-ExtraLight;
+            font-weight: bold;
+            overflow: hidden;
+            color: rgba(144, 209, 242, 1);
+        }
+        
+        .line_box .p_chart ul li {
+            float: left;
+            width: 25%;
+            height: 28px;
+            text-align: center;
+            line-height: 28px
+        }
+        
+        .line_box .p_chart .nav {
+            background: #7ECEF4;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-top: 10px;
+            color: #110739
+        }
+        
+        .right_top_Stitle .right_span {
+            float: right;
+            color: #90D1F2;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+        
+        .con_box {
+            width: 100%;
+            height: 20px;
+            line-height: 16px;
+        }
+        
+        .con_box span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: 43px;
+            color: #0AC5D6;
+            font-size: 16px;
+        }
+        
+        .history_box {
+            width: 100%;
+            height: 550px;
+            margin-top: 56px;
+        }
+        
+        .start_box {
+            width: 100%;
+            height: 43px;
+            /* overflow: hidden; */
+        }
+        
+        .start_box>.same_box {
+            width: 28px;
+            height: 43px;
+            /* border:1px solid yellow; */
+            float: left;
+            margin-left: 33px;
+        }
+        
+        .str_img {
+            width: 100%;
+            height: 24px;
+            text-align: center;
+        }
+        
+        .same_box>span {
+            display: block;
+            width: 28px;
+            height: 14px;
+            font-size: 14px;
+            color: #0AC5D6;
+            line-height: 23px;
+        }
+        
+        .end_box {
+            width: 100%;
+            height: 41px;
+            margin-top: 14px;
+        }
+        
+        .end_box>.some_box {
+            width: 28px;
+            height: 35px;
+            float: left;
+            margin-left: 33px;
+        }
+        
+        .sor_img {
+            width: 100%;
+            height: 21px;
+            text-align: center;
+        }
+        
+        .some_box>span {
+            display: block;
+            width: 28px;
+            height: 14px;
+            font-size: 14px;
+            color: #0AC5D6;
+            line-height: 25px;
+        }
+        
+        .select_box {
+            position: absolute;
+            right: 3px;
+            top: 0;
+        }
+        
+        .bei_box {
+            width: 100%;
+            height: 26px;
+            margin-top: 15px;
+        }
+        
+        #beishu {
+            width: 104px;
+            height: 26px;
+            margin-left: 32px;
+            color: #0AC5D6;
+            background-color: rgba(16, 20, 70, 0.2);
+            border: 1px solid #0AC5D6;
+        }
+        
+        #beishu option {
+            color: #0AC5D6;
+            background-color: #101446;
+        }
+        /* .history_box p{
+        height:30px;
+          text-align: left;
+          font-size: 18px;
+          text-indent: 10px;
+          line-height: 30px;
+        
+      } */
+        
+        .cstyle {
+            /* background-color: #90D1F2; */
+            margin-left: 20px;
+            margin-top: 12px;
+            /* border:none; */
+        }
+        
+        .doublebox {
+            margin-top: 10px;
+            text-indent: 20px;
+            height: 26px;
+            line-height: 26px;
+            /* vertical-align: middle; */
+        }
+        
+        .doublebox input {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        
+        #positionDataLabel1 {
+            position: absolute;
+            top: 200;
+            z-index: 99;
+        }
+        
+        .map-info {
+            width: 648px;
+            height: 68px;
+            position: absolute;
+            /* left: 50%;  */
+            bottom: 0;
+            margin-left: 40px;
+            background: rgba(0, 0, 0, .2);
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            line-height: 68px;
+            z-index: 2;
+        }
+        
+        .jianK_box {
+            width: 100%;
+            height: 50px;
+            /* border: 1px solid red; */
+            margin-top: 86px;
+            /* border-bottom: 1px solid rgb(55, 128, 165); */
+        }
+        
+        .jian_box {
+            width: 100%;
+            height: 25px;
+        }
+        
+        .jianK_box .jian_box img {
+            margin-left: 39px;
+        }
+        
+        #openNav {
+            text-align: center;
+            display: block;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: rgba(0, 0, 0, .4);
+            color: #fff;
+            padding: 4px;
+            border-radius: 3px;
+            cursor: pointer;
+            top: 3px;
+            left: 0.5%;
+            line-height: 15px;
+            text-decoration: none;
+            /* border:1px solid #36bcef; */
+        }
+        
+        #leftNav {
+            position: absolute;
+            height: 635px;
+            width: 174px;
+            z-index: 666;
+            top: 6%;
+            left: -14.4%;
+            background-image: url("img/navbg.png");
+            background-size: 100% 100%;
+        }
+        
+        .zaixian_buton {
+            position: absolute;
+            top: 66px;
+            left: 84px;
+            height: 50px;
+            width: 50px;
+            z-index: 6666;
+        }
+        
+        .zaixian_buton button {
+            height: 50px;
+            width: 150px;
+            background-color: rgb(55, 128, 165);
+            border: 1px solid #90D1F2;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            /*-webkit-transform: translate(-50%,-50%);*/
+            /*-ms-transform: translate(-50%,-50%);*/
+            transform: translate(-50%, -50%);
+        }
+        /* 弹框样式   */
+        
+         ::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 5px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgb(126, 206, 244);
+            background: rgb(126, 206, 244);
+        }
+        
+         ::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgb(126, 206, 244);
+            border-radius: 10px;
+            background: #EDEDED;
+        }
+        
+        #cesiumContainer {
+            position: relative;
+        }
+        
+        #cesiumContainer #box_box {
+            position: absolute;
+            display: none;
+            right: 20px;
+            top: 30px;
+            width: 480px;
+            z-index: 100;
+            background: #101749;
+            opacity: 0.8;
+        }
+        
+        #cesiumContainer #box_box .box_div {
+            width: 100%;
+            position: relative;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav li {
+            width: 100px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            background: #101749;
+            color: #0AC5D6;
+            white-space: nowrap;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav .index {
+            background-color: #0AC5D6;
+            color: #fff;
+        }
+        
+        #cesiumContainer #box_box .nav1 {
+            background: #101749;
+        }
+        
+        #cesiumContainer #box_box .nav1 li {
+            display: none;
+            color: #0AC5D6
+        }
+        
+        .nav1 .tzxx {
+            overflow: hidden;
+        }
+        
+        .nav1 .tzxx .tzxx_count {
+            padding: 10px;
+            float: left;
+        }
+        
+        .nav1 .tzxx .tzxx_count p {
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        .nav1 .tzxx .tzxx_count p span {
+            color: rgb(55, 128, 165);
+        }
+        
+        #cesiumContainer #box_box .nav1 .index {
+            display: block
+        }
+        
+        #cesiumContainer #box_name {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            text-indent: 10px;
+            border-bottom: 1px #0AC5D6 solid;
+            color: #0AC5D6;
+        }
+        
+        #cesiumContainer .box_div img {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        /* 导航ztree 样式 */
+        
+        #jiantou12 {
+            width: 50px;
+            height: 50px;
+            z-index: 9999;
+            position: absolute;
+            left: 124px;
+            top: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .4);
+        }
+        
+        #jiantou12 img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        #nav_line {
+            width: 174px;
+            height: 650px;
+            background: #101749;
+            opacity: 0.8;
+            position: absolute;
+            left: -174px;
+            ;
+            overflow-y: auto;
+            top: 55px;
+            z-index: 9999;
+        }
+        
+        #nav_chacha {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
+        .container {
+            width: 3840px;
+            height: 926px;
+            margin: 0;
+            padding: 0;
+            background-color: #081832;
+            position: relative;
+        }
+        
+        .title_left {
+            font-size: 24px;
+            font-family: SourceHanSansCN-ExtraLight;
+            font-weight: bold;
+            color: rgba(144, 209, 242, 1);
+        }
+        
+        .title_left a {
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 19px;
+            margin-top: 10px;
+            font-size: 20px;
+            font-family: SourceHanSansCN-ExtraLight;
+            font-weight: bold;
+            color: rgba(144, 209, 242, 1);
+        }
+        
+        .title_left a:hover {
+            text-decoration: none;
+        }
+        
+        .title_right .right_span {
+            float: right;
+            color: #90D1F2;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+        
+        .con_con {
+            width: 100%;
+            height: 926px;
+            overflow: hidden;
+        }
+        
+        .con_left {
+            width: 1122px;
+            height: 100%;
+            position: relative;
+        }
+        
+        .con_mid {
+            width: 1596px;
+            height: 100%;
+            position: relative;
+        }
+        
+        .con_right {
+            width: 1122px;
+            height: 100%;
+            position: relative;
+        }
+        
+        .line_box_child1 {
+            width: 1122px;
+            height: 260px;
+            overflow: hidden;
+        }
+        
+        .line_box_child2 {
+            width: 1122px;
+            height: 260px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        
+        .line_box_child3 {
+            width: 1122px;
+            height: 260px;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+        
+        .line_box {
+            width: 536px;
+            height: 260px;
+            float: left;
+            background: url('img/beijingtu.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .line_box h2 {
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 270px;
+            text-align: center;
+            line-height: 40px;
+            color: #7ECEF4;
+            font-size: 20px;
+        }
+        
+        .middin_video {
+            width: 361px;
+            height: 184px;
+            background: rgba(0, 234, 255, 1);
+        }
+        
+        .middin_an {
+            position: absolute;
+            width: 80px;
+            right: 30px;
+            top: 60px;
+        }
+        
+        .middin_an img {
+            width: 20px;
+            height: 24px;
+        }
+        
+        .hk-control {
+            width: 80px;
+            height: 28px;
+            margin-top: 8px;
+            background-color: #00ff00;
+        }
+        
+        p.active {
+            background-color: #ff0000 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--内容部分-->
+    <div class="container">
+        <div class="con_con">
+            <!-- 球左侧 -->
+            <div class="con_left left" id="con_left">
+                <div class="title_left">
+                    <a href="javascript:void(0)" id="goTo">首页</a>
+                </div>
+                <iframe src="" frameborder="0" style="width:100%;height:811px;display:none;position:absolute;top:95px;left:0;" id="frame1" scrolling="no"></iframe>
+                <div style="width: 100%;height: 831px; margin-top:58px;position: relative;">
+                    <div class="line_box_child1">
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line_box_child2">
+
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="line_box_child3">
+
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 球地图 -->
+            <div class="con_mid left">
+                <div class="anyone_title">
+                </div>
+                <div class="anyone_mapbox">
+                    <div id="cesiumContainer" class="cesiumContainer" style="
+                                position:absolute;
+                                  width: 1550px;
+                                  height: 720px;
+                                  left:20px;
+                                  top:60px;">
+                        <img src="img/zxtest.png" alt="在线监测" title="在线监测" style=" cursor: pointer; position:absolute;z-index:100; left:70px; top:7px;" onclick="flyline(posintions_f)">
+                        <a id="openNav" style="text-align:center;display:none">
+                            <img src="img/abtn.png" alt="" title="实时巡检">
+                        </a>
+                        <div id="jiantou12">
+                            <img src="img/line_icon.png" alt="">
+                        </div>
+                        <div id="leftNav">
+                            <img id="closewin" style="position:absolute; right:5px; top:11px;" src="img/chacha.png">
+                            <div class="jianK_box">
+                                <div class="jian_box">
+                                    <img id="ren" src="img/peoclose.png" alt="">
+                                    <img id="che" src="img/carclose.png" alt="">
+                                </div>
+                                <div class="con_box">
+                                    <span>人</span>
+                                    <span>车</span>
+                                </div>
+                            </div>
+
+                            <div class="history_box">
+                                <div class="start_box">
+                                    <div class="same_box">
+                                        <div class="str_img">
+                                            <img id="kaishi" src="img/strclose.png" alt="">
+                                        </div>
+                                        <span style="font-size:13px;">开始</span>
+                                    </div>
+                                    <div class="same_box">
+                                        <div class="str_img">
+                                            <img id="zanting" src="img/zanclose.png" alt="">
+                                        </div>
+                                        <span style="font-size:13px;">暂停</span>
+                                    </div>
+                                </div>
+                                <div class="end_box">
+                                    <div class="some_box">
+                                        <div class="sor_img">
+                                            <img id="jieshu" src="img/endclose.png" alt="">
+                                        </div>
+                                        <span style="font-size:13px;">结束</span>
+                                    </div>
+                                    <div class="some_box">
+                                        <div class="sor_img">
+                                            <img id="xunhuan" src="img/xunclose.png" alt="">
+                                        </div>
+                                        <span style="font-size:13px;">循环</span>
+                                    </div>
+                                </div>
+                                <div class="bei_box">
+                                    <select id="beishu" style="font-size:16px;">
+                                        <option value="1">1倍数播放</option>
+                                        <option value="2">2倍数播放</option>
+                                        <option value="4">4倍数播放</option>
+                                        <option value="6">6倍数播放</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="nav_line">
+                            <img id="nav_chacha" src="img/chacha.png" alt="">
+                            <div>
+                                <ul id="treeDemo" class="ztree"></ul>
+                            </div>
+                        </div>
+                        <div class="map-info">
+
+                            <div id="positionDataLabel1"></div>
+                        </div>
+                        <div id="box_box">
+                            <div class="box_div">
+                                <div id="box_name">
+                                </div>
+                                <img id="box_chacha" src="img/chacha.png" alt="" title="chacha">
+                                <ul class="box_nav">
+                                    <li class="index">台账信息</li>
+                                    <li>巡视记录</li>
+                                    <li>缺陷</li>
+                                    <li>隐患</li>
+                                    <li>隐患1</li>
+                                    <li>隐患2</li>
+                                </ul>
+                            </div>
+                            <ul class="nav1">
+                                <li class="index tzxx">
+                                    <div class="tzxx_count">
+                                        <p>名称：<span>忠桃开一线038#</span></p>
+                                        <p>所属路线：<span>忠桃开一线</span></p>
+                                        <p>杆塔地形：<span>平地</span></p>
+                                        <p>塔型：<span>塔型</span></p>
+                                        <p>呼称高：<span>呼称高</span></p>
+                                        <p>档距：<span>档距</span></p>
+                                    </div>
+                                    <div class="tzxx_count" style="margin-left:10px;">
+                                        <p>耐张段：<span>耐张段</span></p>
+                                        <p>代表档段：<span>代表档段</span></p>
+                                        <p>转角度：<span>转角度</span></p>
+                                        <p>报废日期：<span>报废日期</span></p>
+                                        <p>投运日期：<span>投运日期</span></p>
+                                        <p>状态：<span>状态</span></p>
+                                    </div>
+                                </li>
+                                <li>2222</li>
+                                <li>3333</li>
+                                <li>4444</li>
+                                <li>555</li>
+                                <li>6666</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 球右侧 -->
+            <div class="con_right right" id="con_right">
+                <div class="title_right">
+                    <p class="right_span">
+                        <span id="riqi" style="margin-right:16px;">2019年12月25日</span>
+                        <span style="margin-right:16px;">安全生产3645天</span>
+                    </p>
+                </div>
+                <iframe src="" frameborder="0" style="width:100%;height:811px;display:none;top:0;left:0;margin-top:95px;padding: 0;" id="frame2" scrolling="no"></iframe>
+                <div style="width: 100%;height: 831px; margin-top:51px;position: relative;">
+                    <div class="line_box_child1" style="margin-top: 95px;">
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line_box_child2">
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line_box_child3">
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                        <div class="line_box">
+                            <h2></h2>
+                            <div class="p_chart">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="js/comurl.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+    <script src="js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="./Cesium/Cesium.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/Navigation/viewerCesiumNavigationMixin.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/TMSImageProvider/TMSImageProvider.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/dis.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/html2canvas.svg.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/html2canvas.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/tower_math.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/towersdata.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/power_struct.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/CesiumSDK.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/gpsHistory.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/gpsUpdate.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/handler.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/dis.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/flyto.js"></script>
+    <script type="text/javascript" src="js/hkSDK/webVideoCtrl.js"></script>
+    <script type="text/javascript" src="js/hkSDK/webVideoSDK.js"></script>
+
+    <script>
+        'use strict'
+
+        $(document).ready(function() {
+            let userSet = {
+                num: 1,
+                isFull: true,
+                width: document.getElementById("hk_demo").clientWidth || 400,
+                height: document.getElementById("hk_demo").clientHeight || 300,
+                // width: "100%",
+                // height: "100%",
+                iChannel: 1,
+                iAudioChannel: 1,
+            };
+
+
+            let userObj = {
+                ip: "172.16.15.46",
+                port: "80",
+                username: "admin",
+                password: "hk123456"
+            };
+
+            let hk2 = null;
+
+            hk2 = new WebVideoObj("hk_demo", userSet.num, userSet.isFull, userSet.width, userSet.height);
+
+            hk2.defaultPlay(userObj);
+
+
+            $("#hkControl").on("click", function() {
+                if ($(this).hasClass("active")) {
+                    hk2.disable3DZoom();
+                    $(this).removeClass("active");
+                } else {
+                    hk2.enable3DZoom();
+                    $(this).addClass("active");
+                }
+            });
+
+            function ptzBtn() {
+
+            };
+        });
+    </script>
+    <script>
+        divleft("#con_left")
+        divleft("#con_right")
+
+        function divleft(Name) {
+            var aLi = $(Name).find(".line_box");
+            // console.log(aLi);
+            for (var i = 0; i < aLi.length; i++) {
+                //布局
+                aLi[i].style.left = ((i % 2) * 551 + 20) + 'px';
+                // aLi[i].style.left = (i % 2) * 554 + 'px';
+                aLi[i].style.top = Math.floor(i / 2) * 275 + 'px';
+                // 记录顺序
+                aLi[i].index = i;
+
+                //拖拽
+                aLi[i].onmousedown = function(ev) {
+                    var e = ev || window.event;
+                    var iX = e.clientX - this.offsetLeft;
+                    var iY = e.clientY - this.offsetTop;
+                    // console.log(e.clientX)
+                    // console.log(this.offsetLeft)
+                    //针对低版本ie,建立透明层
+                    if (this.setCapture) {
+                        this.setCapture();
+                    }
+
+                    //添加样式
+                    this.className = 'line_box';
+                    var that = this;
+
+                    document.onmousemove = function(ev) {
+                        var e = ev || window.event;
+
+                        var iL = e.clientX - iX;
+                        var iT = e.clientY - iY;
+
+                        that.style.left = iL + 'px';
+                        that.style.top = iT + 'px';
+
+
+
+                    };
+                    document.onmouseup = function() {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                        //针对低版本ie,建立透明层
+                        if (this.releaseCapture) {
+                            this.releaseCapture();
+                        }
+                        //判断是否交换位置
+                        for (var j = 0; j < aLi.length; j++) {
+                            if (
+                                aLi[j] != that //排除自己
+                                &&
+                                that.offsetLeft + that.offsetWidth > aLi[j].offsetLeft + aLi[j].offsetWidth /
+                                2 &&
+                                that.offsetTop + that.offsetHeight > aLi[j].offsetTop + aLi[j].offsetHeight /
+                                2 &&
+                                that.offsetLeft < aLi[j].offsetLeft + aLi[j].offsetWidth / 2 &&
+                                that.offsetTop < aLi[j].offsetTop + aLi[j].offsetHeight / 2
+                            ) {
+                                //交换顺序
+                                var temp = aLi[j].index;
+                                aLi[j].index = that.index;
+                                that.index = temp;
+
+                                //交换位置
+                                aLi[j].style.left = ((aLi[j].index % 2) * 551 + 20) + 'px';
+                                // aLi[j].style.left = (aLi[j].index % 2) * 554 + 'px';
+                                aLi[j].style.top = Math.floor(aLi[j].index / 2) * 275 + 'px';
+                                break;
+
+                            }
+                        }
+
+                        //去掉样式
+                        that.className = 'line_box';
+
+                        //还原位置
+                        that.style.left = ((that.index % 2) * 551 + 20) + 'px';
+                        // that.style.left = (that.index % 2) * 554 + 'px';
+                        that.style.top = Math.floor(that.index / 2) * 275 + 'px';
+
+                    };
+                    //阻止浏览器的默认行为
+                    return false;
+                }
+
+
+            }
+        }
+        var indexPath = "/eq/line/mainList";
+        $.ajax({
+            url: "menu.json",
+            type: "get",
+            async: false,
+            success: function(e) {
+                initMenu(e);
+            }
+        })
+
+
+        function initMenu(e) {
+            var arr = e.menu;
+            var url = $(".line_box");
+            var tie = $(".line_box").children("h2");
+            var con = $(".line_box").children(".p_chart");
+            for (var i = 0; i < arr.length; i++) {
+                tie[i].innerText = arr[i].name;
+                // console.log(arr[i].name)
+                con[i].setAttribute("id", arr[i].id);
+                (function(i) {
+                    tie[i].onclick = function() {
+                        var line_box = $(".line_box");
+                        for (var k = 0; k < line_box.length; k++) {
+                            line_box[k].style.display = "none"
+                        }
+                        $('.title_left').html('<a href="javascript:void(0)" id="goTo_1">首页</a>' + '-' + arr[i].name);
+                        $("#frame1").css("display", "block");
+                        $("#frame1")[0].setAttribute("src", arr[i].url_l);
+                        $("#frame2").css("display", "block");
+                        $("#frame2")[0].setAttribute("src", arr[i].url_r);
+                    }
+                })(i)
+
+                con[i].onclick = function(e) {
+                    event.stopPropagation();
+                }
+                if (con[i].getAttribute("id") == "char0") {
+                    $.ajax({
+                        url: this.baseUrl + this.indexPath,
+                        type: "get",
+                        success: function(res) {
+                            // console.log(res)
+                            con[0].innerHTML =
+                                "<ul class='nav1'>" +
+                                "<li>" + "电压等级" + "</li>" +
+                                "<li>" + "线路数量" + "</li>" +
+                                "<li>" + "线路总长度" + "</li>" +
+                                "<li>" + "标塔数量" + "</li>" +
+                                "</ul>"
+                            var str = "";
+                            for (var i = 0; i < (res.result).length; i++) {
+                                str +=
+                                    "<ul class='nav'>" +
+                                    "<li>" + (res.result)[i].VOLTAGE_LEVEL + "</li>" +
+                                    "<li>" + (res.result)[i].LINECOUNT + "</li>" +
+                                    "<li>" + (res.result)[i].LINESUM + 'km' + "</li>" +
+                                    "<li>" + (res.result)[i].TNUM + "</li>" +
+                                    "</ul>"
+
+                            }
+                            con[0].innerHTML = con[0].innerHTML + str;
+                        }
+                    })
+
+                };
+                if (con[i].getAttribute("id") == "char9") {
+                    con[9].innerHTML =
+                        '<div class="middin_video" style="margin:15px 15px;" id="hk_demo">' +
+                        '</div>' +
+                        '<div class="middin_an" style="top:50px;">' +
+                        '<p><img src="img/youjiantou.png" alt=""><img style="margin-left:38px;" src="img/zanting1.png" alt=""></p>' +
+                        '<p style="margin-top:10px;"><img src="img/zuokuaijin.png" alt=""><img style="margin-left:38px;" src="img/youkuaijin.png" alt=""></p>' +
+                        '<p><img style="width:80px;height: 28px;margin-top:8px;" src="img/1beisu.png" alt=""></p>' +
+                        '<p><img style="width:80px;height: 28px;margin-top:8px;" src="img/2beisu.png" alt=""></p>' +
+                        '<p class="hk-control" id="hkControl">' +
+
+                        '</p>' +
+                        '</div>'
+                }
+            }
+
+        }
+        // 点击首页返回
+        $(document).on("click", "#goTo_1", function() {
+                $('.title_left').html(' <a href="javascript:void(0)" id="goTo">首页</a>');
+                $("#frame1").css("display", "none");
+                $("#frame1")[0].setAttribute("src", "");
+                $("#frame2").css("display", "none");
+                $("#frame2")[0].setAttribute("src", "");
+                var line_box = $(".line_box");
+                for (var k = 0; k < line_box.length; k++) {
+                    line_box[k].style.display = "block";
+                }
+
+            })
+            // h2颜色切换
+        $(".line_box h2").hover(function() {
+            $(this).css({
+                "cursor": "pointer",
+                "color": "firebrick"
+            });
+        }, function() {
+            $(this).css({
+                "cursor": "none",
+                "color": "#7ECEF4"
+            });
+        });
+        // 中间地球
+        // 弹出框 消失
+        $("#box_chacha").on("click", function() {
+            $("#box_box").css({
+                display: "none"
+            })
+        })
+
+        //球功能模块 移动
+        $("#openNav").show();
+        $("#openNav").click(function() {
+            $("#openNav").hide(50, function() {
+                $("#leftNav").animate({
+                    left: '0.2%'
+                }, 200)
+                $("#nav_line").animate({
+                    left: '-174px'
+                }, 200)
+            })
+        })
+
+        $("#closeNav").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+        })
+
+        $("#Czaixian").click(function() {
+            $("#maskbox").css("display", "block");
+
+        })
+
+        $("#maskbox").click(function() {
+            $("#maskbox").css("display", "none");
+        })
+
+        $("#closewin").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+        })
+
+        //ZTREE 导航 模块移动
+        $("#jiantou12").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+            $("#nav_line").animate({
+                left: '0'
+            }, 200)
+
+        })
+        $("#nav_chacha").click(function() {
+            $("#nav_line").animate({
+                left: '-174px'
+            }, 200)
+        })
+
+
+        //ZTREE  导航
+        var zTreeObj;
+        var setting = {
+            check: {
+                enable: true,
+                chkStyle: "checkbox",
+                chkboxType: {
+                    "Y": "s",
+                    "N": "ps"
+                }
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pidKey: "pId",
+                    rootPid: '-1'
+                }
+            },
+            callback: {
+                onCheck: zTreeOnCheck,
+                beforeClick: function(treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("tree");
+                    if (!treeNode.isParent) {
+                        console.log(treeNode)
+                        var cartographic = Cesium.Cartographic.fromDegrees(treeNode.X, treeNode.Y);
+                        var height = globe.viewer.scene.globe.getHeight(cartographic);
+
+                        globe.positioning(treeNode.X + 0.0001, treeNode.Y - 0.001, height + 150)
+                            // $("#box_box").css({display:"block"})
+                            // console.log(treeNode.name)
+                            // console.log(zNodes)
+                            // zTree.expandNode(treeNode);
+                            // return false;
+                    } else {
+                        // alert(treeNode.name)
+                        return true;
+                    }
+                }
+            }
+        };
+
+        function zTreeOnCheck(event, treeId, treeNode) {
+            // console.log(event)
+            //  console.log(treeNode)
+            if (treeNode.checked == true) {
+                if (treeNode.num == undefined) {
+
+                } else {
+                    console.log(treeNode)
+                    var num = treeNode.num.replace(/[^0-9]/ig, "");
+                    String(num)
+                    console.log(treeNode.NAME)
+                    globe.loadPowerLine(num, treeNode.NAME)
+                }
+            }
+            if (treeNode.checked == false) {
+
+            }
+            //var checked = treeNode.checked;
+            //console.log((treeNode?treeNode.name:"root") + "checked " +(checked?"true":"false"));
+            // refreshLayers();
+            // clearCheckedOldNodes();
+        };
+
+        var html = []
+
+        function add(towerDataArray0, add) {
+            var arr = {}
+            var Name = towerDataArray0[0]["线路名称"]
+            arr.name = Name;
+            arr.NAME = towerDataArray0;
+            arr.num = add
+            var arrd = []
+            towerDataArray0.map(function(item) {
+                var arrs = {}
+                arrs.name = item["名称"]
+                arrs.X = item["经度"]
+                arrs.Y = item["纬度"]
+                arrd.push(arrs)
+            })
+            arr.children = arrd
+            html.push(arr)
+        }
+        add(towerDataArray0, 'towerDataArray0');
+        add(towerDataArray4, 'towerDataArray4');
+        add(towerDataArray3, 'towerDataArray3')
+        var zNodes = html;
+        // console.log(html)
+        $(document).ready(function() {
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting,
+                zNodes); //初始化zTree，三个参数一次分别是容器(zTree 的容器 className 别忘了设置为 "ztree")、参数配置、数据源
+        });
+
+
+        //CesiumSDK
+        var urlGlobe = 'http://192.168.2.23:8088/tms/quanqiuDom';
+
+        var urlLZ = 'http://192.168.2.23:8088/tms/lanzhouCityDom';
+
+        var urlTaokai = 'http://192.168.2.23:8088/tms/taokaiDom';
+
+
+        var urlgansu = 'http://192.168.2.23:8088/tms/gansuDem';
+
+        var globe = new GlobeSDK();
+        globe.initGlobe();
+        globe.viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+            url: "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
+        }));
+        globe.loadDem();
+        //     globe.loadDom(urlGlobe,1.0,1.0);
+
+        //     globe.loadDom(urlLZ,1.0,1.0);
+        //     globe.loadDom(urlTaokai,1.0,0.9);
+        //    globe.loadDem(urlgansu);
+        //   // globe.loadPowerLine("0",allTowerData);
+        globe.loadPowerLine("0", towerDataArray0);
+        globe.loadPowerLine("1", towerDataArray1);
+        globe.loadPowerLine("2", towerDataArray2);
+        globe.loadPowerLine("3", towerDataArray3);
+        globe.loadPowerLine("4", towerDataArray4);
+        globe.loadPowerLine("5", towerDataArray5);
+        globe.loadPowerLine("6", towerDataArray6);
+        globe.loadPowerLine("7", towerDataArray7);
+        // //globe.loadPowerLine("8",towerDataArray8);
+        globe.loadPowerLine("9", towerDataArray9);
+        globe.loadPowerLine("10", towerDataArray10);
+        globe.loadPowerLine("11", towerDataArray11);
+        // globe.loadPowerLine("12",towerDataArray12);
+        // globe.loadPowerLine("13",towerDataArray13);
+        // globe.loadPowerLine("14",towerDataArray14);
+        // globe.loadPowerLine("15",towerDataArray15);
+        // globe.loadPowerLine("16",towerDataArray16);
+        // globe.loadPowerLine("17",towerDataArray17);
+        // globe.loadPowerLine("18",towerDataArray18);
+        // globe.loadPowerLine("19",towerDataArray19);
+        // globe.loadPowerLine("20",towerDataArray20);
+
+
+        //相机的pitch值大于0则禁止球旋转操作
+        var scene = globe.viewer.scene;
+        var canvas = globe.viewer.canvas;
+        var camera = globe.viewer.camera;
+        scene.screenSpaceCameraController.minimumZoomDistance = 10;
+        globe.viewer.clock.onTick.addEventListener(function() {
+            setMinCamera();
+        })
+        var setMinCamera = function() {
+            if (camera.pitch > 0) {
+                scene.screenSpaceCameraController.enableTilt = false;
+            }
+        }
+
+        //监控鼠标滚轮按下状态下移动鼠标事件，当鼠标向下移动的时候就允许地球旋转操作
+        var startMousePosition;
+        var mousePosition;
+        var handler = new Cesium.ScreenSpaceEventHandler(canvas);
+        handler.setInputAction(function(movement) {
+            mousePosition = startMousePosition = Cesium.Cartesian3.clone(movement.position);
+            handler.setInputAction(function(movement) {
+                mousePosition = movement.endPosition;
+                var y = mousePosition.y - startMousePosition.y;
+                if (y > 0) {
+                    scene.screenSpaceCameraController.enableTilt = true;
+                }
+            }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+        }, Cesium.ScreenSpaceEventType.MIDDLE_DOWN);
+
+
+
+        //初始定位
+        var rectangle = new Cesium.Rectangle.fromDegrees(103.70790660381317, 36.06049691456829, 103.88482451535427,
+            36.12278401851653);
+        //var rectangle = new Cesium.Rectangle.fromDegrees(103.80790660381317,36.10049691456829,103.80790660381317,36.10049691456829);
+
+        globe.viewer.camera.setView({
+            destination: rectangle,
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0),
+                pitch: Cesium.Math.toRadians(-90.0),
+                roll: 0.0
+            }
+        });
+
+
+        globe.getMousePositionInfo(document.getElementById("positionDataLabel1"));
+        // flyline(posintions_f)
+        // 定位
+        // globe.positioning(109.78, 28.36, 22000000)
+        // function indexclick() {
+        //     flyline(posintions_f)
+        // }
+    </script>
+    <script type="text/javascript" src="./CesiumSDK/picking.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/moving.js"></script>
+    </script>
+
+
+</body>
+
+</html>

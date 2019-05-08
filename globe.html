@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5交通运输监控大数据可视化智慧云平台网站模板</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" content="HTML5交通运输监控大数据可视化智慧云平台网站模板下载。北京市智慧城市交通监控大数据可视化云平台管理系统模板，车辆监控服务后台系统模板html下载。该系统主要包括地图监控、统计分析、表格管理、视频监控、文本录入等界面。主要用于大数据系统的后台展示。大气好看，总共10个html页面模板。" />
+    <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+    <link rel="stylesheet" href="css/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./Cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" type="text/css" href="./CesiumSDK/CesiumSDK.css" />
+    <style>
+        .con_box {
+            width: 100%;
+            height: 20px;
+            line-height: 16px;
+        }
+        
+        .con_box span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: 43px;
+            color: #0AC5D6;
+            font-size: 16px;
+        }
+        
+        .history_box {
+            width: 100%;
+            height: 550px;
+            margin-top: 56px;
+        }
+        
+        .start_box {
+            width: 100%;
+            height: 43px;
+            /* overflow: hidden; */
+        }
+        
+        .start_box>.same_box {
+            width: 28px;
+            height: 43px;
+            /* border:1px solid yellow; */
+            float: left;
+            margin-left: 33px;
+        }
+        
+        .str_img {
+            width: 100%;
+            height: 24px;
+            text-align: center;
+        }
+        
+        .same_box>span {
+            display: block;
+            width: 28px;
+            height: 14px;
+            font-size: 14px;
+            color: #0AC5D6;
+            line-height: 23px;
+        }
+        
+        .end_box {
+            width: 100%;
+            height: 41px;
+            margin-top: 14px;
+        }
+        
+        .end_box>.some_box {
+            width: 28px;
+            height: 35px;
+            float: left;
+            margin-left: 33px;
+        }
+        
+        .sor_img {
+            width: 100%;
+            height: 21px;
+            text-align: center;
+        }
+        
+        .some_box>span {
+            display: block;
+            width: 28px;
+            height: 14px;
+            font-size: 14px;
+            color: #0AC5D6;
+            line-height: 25px;
+        }
+        
+        .bei_box {
+            width: 100%;
+            height: 26px;
+            margin-top: 15px;
+        }
+        
+        #beishu {
+            width: 104px;
+            height: 26px;
+            margin-left: 32px;
+            color: #0AC5D6;
+            background-color: rgba(16, 20, 70, 0.2);
+            border: 1px solid #0AC5D6;
+        }
+        
+        #beishu option {
+            color: #0AC5D6;
+            background-color: #101446;
+        }
+        /* .history_box p{
+        height:30px;
+          text-align: left;
+          font-size: 18px;
+          text-indent: 10px;
+          line-height: 30px;
+        
+      } */
+        
+        .cstyle {
+            /* background-color: #90D1F2; */
+            margin-left: 20px;
+            margin-top: 12px;
+            /* border:none; */
+        }
+        
+        .doublebox {
+            margin-top: 10px;
+            text-indent: 20px;
+            height: 26px;
+            line-height: 26px;
+            /* vertical-align: middle; */
+        }
+        
+        .doublebox input {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        
+        #positionDataLabel1 {
+            position: absolute;
+            top: 200;
+            z-index: 99;
+        }
+        
+        .map-info {
+            width: 648px;
+            height: 68px;
+            position: absolute;
+            /* left: 50%;  */
+            bottom: 0;
+            margin-left: 40px;
+            background: rgba(0, 0, 0, .2);
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            line-height: 68px;
+            z-index: 2;
+        }
+        
+        .jianK_box {
+            width: 100%;
+            height: 50px;
+            /* border: 1px solid red; */
+            margin-top: 86px;
+            /* border-bottom: 1px solid rgb(55, 128, 165); */
+        }
+        
+        .jian_box {
+            width: 100%;
+            height: 25px;
+        }
+        
+        .jianK_box .jian_box img {
+            margin-left: 39px;
+        }
+        
+        #openNav {
+            text-align: center;
+            display: block;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: rgba(0, 0, 0, .4);
+            color: #fff;
+            padding: 4px;
+            border-radius: 3px;
+            cursor: pointer;
+            top: 3px;
+            left: 0.5%;
+            line-height: 15px;
+            text-decoration: none;
+            /* border:1px solid #36bcef; */
+        }
+        
+        #leftNav {
+            position: absolute;
+            height: 635px;
+            width: 174px;
+            z-index: 666;
+            top: 6%;
+            left: -14.4%;
+            background-image: url("img/navbg.png");
+            background-size: 100% 100%;
+        }
+        
+        .zaixian_buton {
+            position: absolute;
+            top: 66px;
+            left: 84px;
+            height: 50px;
+            width: 50px;
+            z-index: 6666;
+        }
+        
+        .zaixian_buton button {
+            height: 50px;
+            width: 150px;
+            background-color: rgb(55, 128, 165);
+            border: 1px solid #90D1F2;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            /*-webkit-transform: translate(-50%,-50%);*/
+            /*-ms-transform: translate(-50%,-50%);*/
+            transform: translate(-50%, -50%);
+        }
+        /* 弹框样式   */
+        
+         ::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 5px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgb(126, 206, 244);
+            background: rgb(126, 206, 244);
+        }
+        
+         ::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgb(126, 206, 244);
+            border-radius: 10px;
+            background: #EDEDED;
+        }
+        
+        #cesiumContainer {
+            position: relative;
+        }
+        
+        #cesiumContainer #box_box {
+            position: absolute;
+            display: none;
+            right: 20px;
+            top: 30px;
+            width: 480px;
+            z-index: 100;
+            background: #101749;
+            opacity: 0.8;
+        }
+        
+        #cesiumContainer #box_box .box_div {
+            width: 100%;
+            position: relative;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav li {
+            width: 100px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            background: #101749;
+            color: #0AC5D6;
+            white-space: nowrap;
+        }
+        
+        #cesiumContainer #box_box .box_div .box_nav .index {
+            background-color: #0AC5D6;
+            color: #fff;
+        }
+        
+        #cesiumContainer #box_box .nav1 {
+            background: #101749;
+        }
+        
+        #cesiumContainer #box_box .nav1 li {
+            display: none;
+            color: #0AC5D6
+        }
+        
+        .nav1 .tzxx {
+            overflow: hidden;
+        }
+        
+        .nav1 .tzxx .tzxx_count {
+            padding: 10px;
+            float: left;
+        }
+        
+        .nav1 .tzxx .tzxx_count p {
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        .nav1 .tzxx .tzxx_count p span {
+            color: rgb(55, 128, 165);
+        }
+        
+        #cesiumContainer #box_box .nav1 .index {
+            display: block
+        }
+        
+        #cesiumContainer #box_name {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            text-indent: 10px;
+            border-bottom: 1px #0AC5D6 solid;
+            color: #0AC5D6;
+            /* position: relative; */
+        }
+        
+        #cesiumContainer .box_div img {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        /* 导航ztree 样式 */
+        
+        #jiantou12 {
+            width: 50px;
+            height: 50px;
+            z-index: 9999;
+            position: absolute;
+            left: 124px;
+            top: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .4);
+        }
+        
+        #jiantou12 img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        #nav_line {
+            width: 174px;
+            height: 650px;
+            background: #101749;
+            opacity: 0.8;
+            position: absolute;
+            left: -174px;
+            ;
+            overflow-y: auto;
+            top: 55px;
+            z-index: 9999;
+        }
+        
+        #nav_chacha {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cesiumContainer" class="cesiumContainer">
+        <img src="img/zxtest.png" alt="在线监测" title="在线监测" style=" cursor: pointer; position:absolute;z-index:100; left:70px; top:7px;" onclick="flyline(posintions_f)">
+        <a id="openNav" style="text-align:center;display:none">
+            <img src="img/abtn.png" alt="" title="实时巡检">
+        </a>
+        <div id="jiantou12">
+            <img src="img/line_icon.png" alt="">
+        </div>
+        <div id="leftNav">
+            <img id="closewin" style="position:absolute; right:5px; top:11px;" src="img/chacha.png">
+            <div class="jianK_box">
+                <div class="jian_box">
+                    <img id="ren" src="img/peoclose.png" alt="">
+                    <img id="che" src="img/carclose.png" alt="">
+                </div>
+                <div class="con_box">
+                    <span>人</span>
+                    <span>车</span>
+                </div>
+            </div>
+
+            <div class="history_box">
+                <div class="start_box">
+                    <div class="same_box">
+                        <div class="str_img">
+                            <img id="kaishi" src="img/strclose.png" alt="">
+                        </div>
+                        <span style="font-size:13px;">开始</span>
+                    </div>
+                    <div class="same_box">
+                        <div class="str_img">
+                            <img id="zanting" src="img/zanclose.png" alt="">
+                        </div>
+                        <span style="font-size:13px;">暂停</span>
+                    </div>
+                </div>
+                <div class="end_box">
+                    <div class="some_box">
+                        <div class="sor_img">
+                            <img id="jieshu" src="img/endclose.png" alt="">
+                        </div>
+                        <span style="font-size:13px;">结束</span>
+                    </div>
+                    <div class="some_box">
+                        <div class="sor_img">
+                            <img id="xunhuan" src="img/xunclose.png" alt="">
+                        </div>
+                        <span style="font-size:13px;">循环</span>
+                    </div>
+                </div>
+                <div class="bei_box">
+                    <select id="beishu" style="font-size:16px;">
+                        <option value="1">1倍数播放</option>
+                        <option value="2">2倍数播放</option>
+                        <option value="4">4倍数播放</option>
+                        <option value="6">6倍数播放</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div id="nav_line">
+            <img id="nav_chacha" src="img/chacha.png" alt="">
+            <div>
+                <ul id="treeDemo" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="map-info">
+
+            <div id="positionDataLabel1"></div>
+        </div>
+        <div id="box_box">
+            <div class="box_div">
+                <div id="box_name">
+                </div>
+                <img id="box_chacha" src="img/chacha.png" alt="" title="chacha">
+                <ul class="box_nav">
+                    <li class="index">台账信息</li>
+                    <li>巡视记录</li>
+                    <li>缺陷</li>
+                    <li>隐患</li>
+                    <li>隐患1</li>
+                    <li>隐患2</li>
+                </ul>
+            </div>
+            <ul class="nav1">
+                <li class="index tzxx">
+                    <div class="tzxx_count">
+                        <p>名称：<span>忠桃开一线038#</span></p>
+                        <p>所属路线：<span>忠桃开一线</span></p>
+                        <p>杆塔地形：<span>平地</span></p>
+                        <p>塔型：<span>塔型</span></p>
+                        <p>呼称高：<span>呼称高</span></p>
+                        <p>档距：<span>档距</span></p>
+                    </div>
+                    <div class="tzxx_count" style="margin-left:10px;">
+                        <p>耐张段：<span>耐张段</span></p>
+                        <p>代表档段：<span>代表档段</span></p>
+                        <p>转角度：<span>转角度</span></p>
+                        <p>报废日期：<span>报废日期</span></p>
+                        <p>投运日期：<span>投运日期</span></p>
+                        <p>状态：<span>状态</span></p>
+                    </div>
+                </li>
+                <li>2222</li>
+                <li>3333</li>
+                <li>4444</li>
+                <li>555</li>
+                <li>6666</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="maskbox">
+        <div class="video_center_box">
+            <video src="img/jk.mp4" width="1596" height="860" autoplay="autoplay"></video>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+    <script src="js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="./Cesium/Cesium.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/Navigation/viewerCesiumNavigationMixin.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/TMSImageProvider/TMSImageProvider.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/dis.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/html2canvas.svg.js"></script>
+    <script type="text/javascript" src="./Cesium/plugin/html2canvas.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/tower_math.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/towersdata.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/power_struct.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/CesiumSDK.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/gpsHistory.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/gpsUpdate.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/handler.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/dis.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/flyto.js"></script>
+
+    <script>
+        // 弹出框 消失
+        $("#box_chacha").on("click", function() {
+            $("#box_box").css({
+                display: "none"
+            })
+        })
+
+        //球功能模块 移动
+        $("#openNav").show();
+        $("#openNav").click(function() {
+            $("#openNav").hide(50, function() {
+                $("#leftNav").animate({
+                    left: '0.2%'
+                }, 200)
+                $("#nav_line").animate({
+                    left: '-174px'
+                }, 200)
+            })
+        })
+
+        $("#closeNav").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+        })
+
+        $("#Czaixian").click(function() {
+            $("#maskbox").css("display", "block");
+
+        })
+
+        $("#maskbox").click(function() {
+            $("#maskbox").css("display", "none");
+        })
+
+        $("#closewin").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+        })
+
+        //ZTREE 导航 模块移动
+        $("#jiantou12").click(function() {
+            $("#leftNav").animate({
+                left: '-14.4%'
+            }, 200, function() {
+                $("#openNav").show(200)
+            })
+            $("#nav_line").animate({
+                left: '0'
+            }, 200)
+
+        })
+        $("#nav_chacha").click(function() {
+            $("#nav_line").animate({
+                left: '-174px'
+            }, 200)
+        })
+
+
+        //ZTREE  导航
+        var zTreeObj;
+        var setting = {
+            check: {
+                enable: true,
+                chkStyle: "checkbox",
+                chkboxType: {
+                    "Y": "s",
+                    "N": "ps"
+                }
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pidKey: "pId",
+                    rootPid: '-1'
+                }
+            },
+            callback: {
+                onCheck: zTreeOnCheck,
+                beforeClick: function(treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("tree");
+                    if (!treeNode.isParent) {
+                        console.log(treeNode)
+                        var cartographic = Cesium.Cartographic.fromDegrees(treeNode.X, treeNode.Y);
+                        var height = globe.viewer.scene.globe.getHeight(cartographic);
+
+                        globe.positioning(treeNode.X + 0.0001, treeNode.Y - 0.001, height + 150)
+                            // $("#box_box").css({display:"block"})
+                            // console.log(treeNode.name)
+                            // console.log(zNodes)
+                            // zTree.expandNode(treeNode);
+                            // return false;
+                    } else {
+                        // alert(treeNode.name)
+                        return true;
+                    }
+                }
+            }
+        };
+
+        function zTreeOnCheck(event, treeId, treeNode) {
+            // console.log(event)
+            //  console.log(treeNode)
+            if (treeNode.checked == true) {
+                if (treeNode.num == undefined) {
+
+                } else {
+                    console.log(treeNode)
+                    var num = treeNode.num.replace(/[^0-9]/ig, "");
+                    String(num)
+                    console.log(treeNode.NAME)
+                    globe.loadPowerLine(num, treeNode.NAME)
+                }
+            }
+            if (treeNode.checked == false) {
+
+            }
+            //var checked = treeNode.checked;
+            //console.log((treeNode?treeNode.name:"root") + "checked " +(checked?"true":"false"));
+            // refreshLayers();
+            // clearCheckedOldNodes();
+        };
+
+        var html = []
+
+        function add(towerDataArray0, add) {
+            var arr = {}
+            var Name = towerDataArray0[0]["线路名称"]
+            arr.name = Name;
+            arr.NAME = towerDataArray0;
+            arr.num = add
+            var arrd = []
+            towerDataArray0.map(function(item) {
+                var arrs = {}
+                arrs.name = item["名称"]
+                arrs.X = item["经度"]
+                arrs.Y = item["纬度"]
+                arrd.push(arrs)
+            })
+            arr.children = arrd
+            html.push(arr)
+        }
+        add(towerDataArray0, 'towerDataArray0');
+        add(towerDataArray4, 'towerDataArray4');
+        add(towerDataArray3, 'towerDataArray3')
+        var zNodes = html;
+        console.log(html)
+        $(document).ready(function() {
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting,
+                zNodes); //初始化zTree，三个参数一次分别是容器(zTree 的容器 className 别忘了设置为 "ztree")、参数配置、数据源
+        });
+
+
+        //CesiumSDK
+        var urlGlobe = 'http://192.168.2.23:8088/tms/quanqiuDom';
+
+        var urlLZ = 'http://192.168.2.23:8088/tms/lanzhouCityDom';
+
+        var urlTaokai = 'http://192.168.2.23:8088/tms/taokaiDom';
+
+
+        var urlgansu = 'http://192.168.2.23:8088/tms/gansuDem';
+
+        var globe = new GlobeSDK();
+        globe.initGlobe();
+        globe.viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+            url: "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali"
+        }));
+        globe.loadDem();
+        //     globe.loadDom(urlGlobe,1.0,1.0);
+
+        //     globe.loadDom(urlLZ,1.0,1.0);
+        //     globe.loadDom(urlTaokai,1.0,0.9);
+        //    globe.loadDem(urlgansu);
+        //   // globe.loadPowerLine("0",allTowerData);
+        globe.loadPowerLine("0", towerDataArray0);
+        globe.loadPowerLine("1", towerDataArray1);
+        globe.loadPowerLine("2", towerDataArray2);
+        globe.loadPowerLine("3", towerDataArray3);
+        globe.loadPowerLine("4", towerDataArray4);
+        globe.loadPowerLine("5", towerDataArray5);
+        globe.loadPowerLine("6", towerDataArray6);
+        globe.loadPowerLine("7", towerDataArray7);
+        // //globe.loadPowerLine("8",towerDataArray8);
+        globe.loadPowerLine("9", towerDataArray9);
+        globe.loadPowerLine("10", towerDataArray10);
+        globe.loadPowerLine("11", towerDataArray11);
+        // globe.loadPowerLine("12",towerDataArray12);
+        // globe.loadPowerLine("13",towerDataArray13);
+        // globe.loadPowerLine("14",towerDataArray14);
+        // globe.loadPowerLine("15",towerDataArray15);
+        // globe.loadPowerLine("16",towerDataArray16);
+        // globe.loadPowerLine("17",towerDataArray17);
+        // globe.loadPowerLine("18",towerDataArray18);
+        // globe.loadPowerLine("19",towerDataArray19);
+        // globe.loadPowerLine("20",towerDataArray20);
+
+
+        //相机的pitch值大于0则禁止球旋转操作
+        var scene = globe.viewer.scene;
+        var canvas = globe.viewer.canvas;
+        var camera = globe.viewer.camera;
+        scene.screenSpaceCameraController.minimumZoomDistance = 10;
+        globe.viewer.clock.onTick.addEventListener(function() {
+            setMinCamera();
+        })
+        var setMinCamera = function() {
+            if (camera.pitch > 0) {
+                scene.screenSpaceCameraController.enableTilt = false;
+            }
+        }
+
+        //监控鼠标滚轮按下状态下移动鼠标事件，当鼠标向下移动的时候就允许地球旋转操作
+        var startMousePosition;
+        var mousePosition;
+        var handler = new Cesium.ScreenSpaceEventHandler(canvas);
+        handler.setInputAction(function(movement) {
+            mousePosition = startMousePosition = Cesium.Cartesian3.clone(movement.position);
+            handler.setInputAction(function(movement) {
+                mousePosition = movement.endPosition;
+                var y = mousePosition.y - startMousePosition.y;
+                if (y > 0) {
+                    scene.screenSpaceCameraController.enableTilt = true;
+                }
+            }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+        }, Cesium.ScreenSpaceEventType.MIDDLE_DOWN);
+
+
+
+        //初始定位
+        var rectangle = new Cesium.Rectangle.fromDegrees(103.70790660381317, 36.06049691456829, 103.88482451535427,
+            36.12278401851653);
+        //var rectangle = new Cesium.Rectangle.fromDegrees(103.80790660381317,36.10049691456829,103.80790660381317,36.10049691456829);
+
+        globe.viewer.camera.setView({
+            destination: rectangle,
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0),
+                pitch: Cesium.Math.toRadians(-90.0),
+                roll: 0.0
+            }
+        });
+
+
+        globe.getMousePositionInfo(document.getElementById("positionDataLabel1"));
+        // flyline(posintions_f)
+        // 定位
+        // globe.positioning(109.78, 28.36, 22000000)
+        // function indexclick() {
+        //     flyline(posintions_f)
+        // }
+    </script>
+    <script type="text/javascript" src="./CesiumSDK/picking.js"></script>
+    <script type="text/javascript" src="./CesiumSDK/moving.js"></script>
+</body>
+
+</html>

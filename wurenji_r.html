@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>无人机巡检</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" content="HTML5交通运输监控大数据可视化智慧云平台网站模板下载。北京市智慧城市交通监控大数据可视化云平台管理系统模板，车辆监控服务后台系统模板html下载。该系统主要包括地图监控、统计分析、表格管理、视频监控、文本录入等界面。主要用于大数据系统的后台展示。大气好看，总共10个html页面模板。" />
+    <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+
+    <style>
+        th {
+            border-bottom: 1px solid rgba(10, 197, 214, 1);
+            border-right: 1px solid rgba(10, 197, 214, 1);
+        }
+        
+        td {
+            border-bottom: 1px solid rgba(10, 197, 214, 1);
+            border-right: 1px solid rgba(10, 197, 214, 1);
+        }
+        
+        #box {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .box_Btitle {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(55, 128, 165);
+            /* text-align: center; */
+            line-height: 50px;
+            font-size: 24px;
+            text-indent: 5px;
+            cursor: pointer;
+        }
+        
+        .con_box {
+            width: 100%;
+            height: 20px;
+            line-height: 16px;
+        }
+        
+        .con_box span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: 43px;
+            color: #0AC5D6;
+            font-size: 16px;
+        }
+        
+        .cstyle {
+            /* background-color: #90D1F2; */
+            margin-left: 20px;
+            margin-top: 12px;
+            /* border:none; */
+        }
+        
+        .doublebox {
+            margin-top: 10px;
+            text-indent: 20px;
+            height: 26px;
+            line-height: 26px;
+            /* vertical-align: middle; */
+        }
+        
+        .doublebox input {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        
+        #positionDataLabel1 {
+            position: absolute;
+            top: 200;
+            z-index: 99;
+        }
+        
+        .map-info {
+            width: 648px;
+            height: 68px;
+            position: absolute;
+            /* left: 50%;  */
+            bottom: 0;
+            margin-left: 40px;
+            background: rgba(0, 0, 0, .2);
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            line-height: 68px;
+            z-index: 2;
+        }
+        
+        .zaixian_buton {
+            position: absolute;
+            top: 66px;
+            left: 84px;
+            height: 50px;
+            width: 50px;
+            z-index: 6666
+        }
+        
+        .zaixian_buton button {
+            height: 50px;
+            width: 150px;
+            background-color: rgb(55, 128, 165);
+            border: 1px solid #90D1F2;
+        }
+        
+        #maskbox {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 9999;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+        }
+        
+        .video_center_box {
+            width: 1596px;
+            height: 860px;
+            /* border:1px solid red; */
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 56%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .box_box {
+            padding: 5%;
+            height: 100%;
+        }
+        
+        .right_top_Stitle .right_span {
+            float: right;
+            color: #90D1F2;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+        
+        .div_any01 .div_line_box {
+            width: 1089px;
+            height: 811px;
+            /* border:1px solid red; */
+            margin-top: 61px;
+            margin-left: 20px;
+        }
+        
+        .div_line_rightbox {
+            width: 1089px;
+            height: 811px;
+            margin-left: 16px;
+        }
+        
+        .nav_title {
+            width: 300px;
+            height: 24px;
+            /* border:1px solid red; */
+            margin-top: 10px;
+            margin-left: 21px;
+            color: #90D1F2;
+        }
+        
+        .nav_title a {
+            color: #90D1F2;
+            font-size: 14px;
+        }
+        
+        .voltage_box {
+            width: 1083px;
+            height: 529px;
+            margin-left: 3px;
+            background: url('img/wurenji.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .voltage_box h2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 250px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            color: rgb(126, 206, 244);
+        }
+        
+        .voltage_info_box {
+            width: 1083px;
+            height: 253px;
+            background: url('img/wurenji1.png') no-repeat;
+            background-size: 100% 100%;
+            margin-top: 16px;
+            position: relative;
+            padding: 65px 106px
+        }
+        
+        .voltage_info_box table thead {
+            height: 70px;
+            line-height: 70px;
+            background: #235AB8;
+        }
+        
+        .voltage_info_box table tbody {
+            height: 70px;
+            line-height: 70px;
+            background: #1D2088
+        }
+        
+        .voltage_info_box table td {
+            width: 172px;
+            text-align: center
+        }
+        
+        .voltage_info_box h2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 250px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            color: rgb(126, 206, 244);
+        }
+        
+        .ban_table {
+            width: 1043px;
+            height: 255px;
+            margin-left: 23px;
+        }
+        
+        .con_right {
+            width: 1122px;
+            height: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con_right">
+        <div class="div_line_rightbox">
+            <div class="voltage_box">
+                <h2>缺陷类型及数量</h2>
+                <div id="bteam" style="width:100%;height:100% "></div>
+            </div>
+            <div class="voltage_info_box">
+                <h2>缺陷类型及数量</h2>
+                <table border="0" cellpadding='0' cellspacing='0'>
+                    <thead>
+                        <tr>
+                            <td>缺陷1</td>
+                            <td>缺陷2</td>
+                            <td>缺陷3</td>
+                            <td>缺陷4</td>
+                            <td>缺陷5</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>400</td>
+                            <td>200</td>
+                            <td>300</td>
+                            <td>1100</td>
+                            <td>3500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="js/comurl.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/wurenji.js"></script>
+    <script>
+    </script>
+
+
+</body>
+
+</html>

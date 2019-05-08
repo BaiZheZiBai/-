@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>故障统计</title>
+    <meta name="keywords" content="HTML5交通运输监控大数据可视化智慧云平台网站模板" />
+    <meta name="description" content="HTML5交通运输监控大数据可视化智慧云平台网站模板下载。北京市智慧城市交通监控大数据可视化云平台管理系统模板，车辆监控服务后台系统模板html下载。该系统主要包括地图监控、统计分析、表格管理、视频监控、文本录入等界面。主要用于大数据系统的后台展示。大气好看，总共10个html页面模板。" />
+    <!-- <meta name="author" content="js代码(www.jsdaima.com)" />
+    <meta name="copyright" content="js代码(www.jsdaima.com)" /> -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style5.css">
+    <style>
+        th {
+            color: #90D1F2;
+        }
+        
+        td {
+            text-align: center;
+            color: #90D1F2;
+        }
+        
+        .div_right_status {
+            width: 1122px;
+            height: 535px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .wk_four_box h2 {
+            height: 40px;
+            width: 200px;
+            text-align: center;
+            line-height: 40px;
+            color: #7ECEF4;
+            font-size: 20px;
+        }
+        
+        .wk_four_box {
+            width: 536px;
+            height: 535px;
+            margin-left: 20px;
+            background: url('img/gztj.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .wk_four_box1 h2 {
+            height: 40px;
+            width: 340px;
+            text-align: center;
+            line-height: 40px;
+            color: #7ECEF4;
+            font-size: 20px;
+        }
+        
+        .wk_four_box1 {
+            width: 536px;
+            height: 535px;
+            margin-left: 15px;
+            background: url('img/gztj1.png') no-repeat;
+            background-size: 100% 100%
+        }
+        
+        .div_right_type {
+            width: 1087px;
+            height: 260px;
+            margin-top: 16px;
+            margin-left: 20px;
+            position: relative;
+            background: url('img/wk_typebg.png') no-repeat;
+        }
+        
+        .div_right_type h2 {
+            height: 40px;
+            width: 270px;
+            text-align: center;
+            line-height: 40px;
+            color: #7ECEF4;
+            font-size: 20px;
+        }
+        
+        .type_wk_box {
+            width: 1081px;
+            height: 220px;
+            margin-left: 3px;
+        }
+        
+        .wk_year_info,
+        .wk_month_info {
+            width: 540px;
+            height: 495px;
+            float: left;
+        }
+        
+        #Lightningstroke ul {
+            text-align: center;
+            padding: 10px 30px
+        }
+        
+        #Lightningstroke ul li {
+            height: 30px;
+            background: rgba(14, 90, 125, 1);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            line-height: 30px;
+            font-size: 16px;
+            text-indent: 10px;
+            color: #90D1F2;
+        }
+        
+        #Lightningstroke ul li span {
+            width: 10px;
+            height: 10px;
+            background: rgba(10, 197, 214, 1);
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        
+        #year_lf {
+            padding-top: 30px;
+        }
+        
+        #year_lf ul {
+            padding: 0px 30px
+        }
+        
+        #year_lf ul li {
+            height: 30px;
+            background: rgba(14, 90, 125, 1);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            line-height: 30px;
+            font-size: 16px;
+            text-indent: 10px;
+            color: #90D1F2
+        }
+        
+        #year_lf1 {
+            margin-top: 30px;
+            padding: 0px 15px;
+        }
+        
+        #year_lf1 ul {
+            margin: 5px 0px;
+            width: 488px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            color: #90D1F2
+        }
+        
+        #year_lf1 ul li {
+            float: left;
+            padding: 0px 5px;
+        }
+        
+        #year_lf1 .nav {
+            height: 30px;
+            background: rgba(14, 90, 125, 1);
+            border-radius: 14px;
+        }
+        
+        .div_right_type .type_dl_nav {
+            position: absolute;
+            width: 488px;
+            right: 20px;
+            top: 100px;
+        }
+        
+        .div_right_type .type_dl_nav li {
+            height: 30px;
+            width: 488px;
+            background: rgba(14, 90, 125, 1);
+            text-indent: 20px;
+            margin: 10px 0;
+            border-radius: 14px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con_right">
+        <div class="div_right_status">
+            <div class="wk_four_box">
+                <h2>故障线路概况</h2>
+                <div class="wk_year_info" id="year_lf">
+                    <ul>
+                        <li>线路总长度：<span>1100KM</span> </li>
+                        <li>杆塔数：<span>300</span> </li>
+                        <li>电压等级：<span>200kv</span> </li>
+                        <li>分布式故障诊断装置安装套数：<span>3</span> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wk_four_box1">
+                <h2>分布式故障诊断装置安装情况</h2>
+                <div class="wk_year_info" id="year_lf1">
+                    <ul>
+                        <li style="width:130px">安装装置</li>
+                        <li>数量</li>
+                        <li>备注</li>
+                    </ul>
+                    <ul class="nav">
+                        <li>2号塔（大号侧）</li>
+                        <li>1套</li>
+                        <li>1套含ABC三相;全部诊断装置安装朝向相同</li>
+                    </ul>
+                    <ul class="nav">
+                        <li>2号塔（大号侧）</li>
+                        <li>1套</li>
+                        <li>1套含ABC三相;全部诊断装置安装朝向相同</li>
+                    </ul>
+                    <ul class="nav">
+                        <li>2号塔（大号侧）</li>
+                        <li>1套</li>
+                        <li>1套含ABC三相;全部诊断装置安装朝向相同</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="div_right_type">
+            <h2>故障信息</h2>
+            <div class="type_wk_box" id="type_lf">
+            </div>
+            <ul class="type_dl_nav">
+                <li>2019年1月1日14时00分00秒，发生故障在[#60]杆塔附近</li>
+                <li>故障类型为[非雷击]，故障相别为[A]相</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="js/echarts-all.js"></script>
+    <script src="js/base.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="js/gztj.js"></script>
+
+    <script>
+    </script>
+
+
+</body>
+
+</html>
